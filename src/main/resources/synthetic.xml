@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+-->
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- PagerDuty Authentication Configuration -->
+    <type type="pagerduty.Authentication" extends="xlrelease.Configuration">
+        <property name="url" label="PagerDuty REST API URL" required="true" description="PagerDuty API URL." default="https://events.pagerduty.com/v2"/>
+        <property name="api_access_token" label="API Access Token" required="true" password="true" description="API Access Token for authentication on PagerDuty."/>
+    </type>
+
+    <!-- PagerDuty Task Configurations -->
+    <type type="pagerduty.Task" extends="xlrelease.PythonScript" virtual="true">
+        <property name="scriptLocation" default="pagerduty/PagerDutyTask.py" hidden="true"/>
+        <property name="iconLocation" default="pagerduty/pagerduty-logo.png" hidden="true"/>
+        <property name="pagerduty_authentication" category="input" label="Authentication" referenced-type="pagerduty.Authentication" kind="ci" required="true" description="PagerDuty Authentication."/>
+        <property name="output" category="output" kind="string" size="large" label="Output" description="The output returned from execution of the PagerDuty task."/>
+    </type>
+
+
+    <type type="pagerduty.TriggerEvent" extends="pagerduty.Task">
+        <property name="routing_key" category="input" label="Routing Key" required="true" description="The GUID of one of your Events API V2 integrations. This is the Integration Key listed on the Events API V2 integration's detail page in PagerDuty."/>
+        <property name="event_summary" category="input" label="Summary" required="true"/>
+        <property name="event_source" category="input" label="Source" required="true"/>
+        <property name="event_severity" category="input" kind="enum" label="Severity" required="true">
+            <enum-values>
+                <value>critical</value>
+                <value>error</value>
+                <value>warning</value>
+                <value>info</value>
+            </enum-values>
+        </property>
+    </type>
+</synthetic>
+

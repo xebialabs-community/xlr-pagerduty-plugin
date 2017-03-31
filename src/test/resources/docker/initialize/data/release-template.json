@@ -1,0 +1,146 @@
+[
+  {
+    "id":"Applications\/Release604956025",
+    "type":"xlrelease.Release",
+    "$createdBy":"admin",
+    "$createdAt":"2017-03-31T12:36:34.285-0600",
+    "$lastModifiedBy":"admin",
+    "$lastModifiedAt":"2017-03-31T13:53:39.935-0600",
+    "title":"PagerDuty",
+    "scheduledStartDate":"2017-03-31T09:00:00-06:00",
+    "flagStatus":"OK",
+    "maxConcurrentReleases":100,
+    "releaseTriggers":[
+
+    ],
+    "teams":[
+      {
+        "id":"Applications\/Release604956025\/Team339592762",
+        "type":"xlrelease.Team",
+        "teamName":"Release Admin",
+        "members":[
+
+        ],
+        "roles":[
+
+        ],
+        "permissions":[
+          "release#edit",
+          "release#start",
+          "release#reassign_task",
+          "template#view",
+          "release#edit_security",
+          "release#abort",
+          "release#view",
+          "release#edit_task"
+        ]
+      },
+      {
+        "id":"Applications\/Release604956025\/Team647415716",
+        "type":"xlrelease.Team",
+        "teamName":"Template Owner",
+        "members":[
+          "admin"
+        ],
+        "roles":[
+
+        ],
+        "permissions":[
+          "template#edit",
+          "template#view",
+          "template#edit_triggers",
+          "template#edit_security",
+          "template#create_release"
+        ]
+      }
+    ],
+    "memberViewers":[
+
+    ],
+    "roleViewers":[
+
+    ],
+    "attachments":[
+
+    ],
+    "phases":[
+      {
+        "id":"Applications\/Release604956025\/Phase444795910",
+        "type":"xlrelease.Phase",
+        "$createdBy":"admin",
+        "$createdAt":"2017-03-31T12:36:34.356-0600",
+        "$lastModifiedBy":"admin",
+        "$lastModifiedAt":"2017-03-31T12:36:43.617-0600",
+        "title":"PagerDuty Events",
+        "flagStatus":"OK",
+        "tasks":[
+          {
+            "id":"Applications\/Release604956025\/Phase444795910\/Task898944480",
+            "type":"xlrelease.CustomScriptTask",
+            "$createdBy":"admin",
+            "$createdAt":"2017-03-31T12:36:55.607-0600",
+            "$lastModifiedBy":"admin",
+            "$lastModifiedAt":"2017-03-31T13:53:39.563-0600",
+            "title":"Trigger Event",
+            "flagStatus":"OK",
+            "comments":[
+
+            ],
+            "container":"Applications\/Release604956025\/Phase444795910",
+            "attachments":[
+
+            ],
+            "status":"PLANNED",
+            "overdueNotified":false,
+            "waitForScheduledStartDate":true,
+            "hasBeenFlagged":false,
+            "hasBeenDelayed":false,
+            "failuresCount":0,
+            "variableMapping":{
+
+            },
+            "tags":[
+
+            ],
+            "pythonScript":{
+              "id":"Applications\/Release604956025\/Phase444795910\/Task898944480\/PythonScript",
+              "type":"pagerduty.TriggerEvent",
+              "$createdBy":"admin",
+              "$createdAt":"2017-03-31T12:36:55.607-0600",
+              "$lastModifiedBy":"admin",
+              "$lastModifiedAt":"2017-03-31T13:53:39.563-0600",
+              "customScriptTask":"Applications\/Release604956025\/Phase444795910\/Task898944480",
+              "pagerduty_authentication":"Configuration\/Custom\/Configuration68495212",
+              "routing_key":"164c8c844f7145aeba4acae4f681a935",
+              "event_summary":"Test triggering PagerDuty Events from XL Release Server",
+              "event_source":"${release.id} -- ${release.title}",
+              "event_severity":"critical"
+            }
+          }
+        ],
+        "release":"Applications\/Release604956025",
+        "status":"PLANNED",
+        "color":"#009CDB"
+      }
+    ],
+    "queryableStartDate":"2017-03-31T09:00:00-06:00",
+    "realFlagStatus":"OK",
+    "status":"TEMPLATE",
+    "tags":[
+
+    ],
+    "variables":[
+
+    ],
+    "calendarPublished":false,
+    "tutorial":false,
+    "abortOnFailure":false,
+    "allowConcurrentReleasesFromTrigger":true,
+    "runningTriggeredReleasesCount":0,
+    "createdFromTrigger":false,
+    "extensions":[
+
+    ]
+  }
+
+]

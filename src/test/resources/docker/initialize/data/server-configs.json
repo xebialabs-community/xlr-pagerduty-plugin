@@ -1,0 +1,9 @@
+[
+  {
+    "type":"pagerduty.Authentication",
+    "url":"https://events.pagerduty.com/v2",
+    "api_access_token":"1234567890",
+    "title":"PagerDuty Authentication",
+    "id":"Configuration/Custom/Configuration68495212"
+  }
+]
