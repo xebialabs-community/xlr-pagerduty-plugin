@@ -4,7 +4,7 @@
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
 
-import json, requests, sys, traceback
+import requests, sys, traceback
 
 class PagerDutyClient(object):
     def __init__(self, pagerduty_authentication):
@@ -28,8 +28,7 @@ class PagerDutyClient(object):
                 },
                 "routing_key": "%s" % variables['routing_key'],
                 "event_action": "trigger",
-                "client": "XL Release Server",
-                "client_url": "get task url?"
+                "client": "XL Release Server"
             }
             return self.get_response_for_endpoint('POST', '/enqueue', "Failed to trigger event.", json_data=event_data)
         except Exception:
